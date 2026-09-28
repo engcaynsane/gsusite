@@ -1,0 +1,40 @@
+@using UniversityApp.Models
+@model List<UniversityApp.Models.Student>
+@{
+    ViewData["Title"] = "Students";
+}
+
+<main class="page-content">
+    <section class="section-heading student-heading">
+        <div>
+            <p class="eyebrow">Our community</p>
+            <h1>Student information</h1>
+        </div>
+        <div class="student-heading-actions">
+            <p class="student-count">@Model.Count students</p>
+            <a class="button button-primary" href="/Student/Create">Add student</a>
+        </div>
+    </section>
+
+    <div class="student-table-wrap">
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Faculty</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td class="student-id">@student.Id.ToString("D3")</td>
+                        <td class="student-name">@student.Name</td>
+                        <td><span class="faculty-label">@student.Faculty</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>

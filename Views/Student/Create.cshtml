@@ -1,0 +1,33 @@
+@model UniversityApp.Models.Student
+@{
+    ViewData["Title"] = "Add student";
+}
+
+<main class="page-content">
+    <section class="section-heading create-heading">
+        <p class="eyebrow">Student directory</p>
+        <h1>Add a student</h1>
+    </section>
+
+    <form class="student-form" action="/Student/Create" method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false, "", new { @class = "form-validation" })
+
+        <div class="form-field">
+            @Html.LabelFor(student => student.Name, "Full name")
+            @Html.TextBoxFor(student => student.Name, new { @class = "form-input", autocomplete = "name", maxlength = 100, required = "required" })
+            @Html.ValidationMessageFor(student => student.Name, "", new { @class = "field-validation" })
+        </div>
+
+        <div class="form-field">
+            @Html.LabelFor(student => student.Faculty, "Faculty")
+            @Html.TextBoxFor(student => student.Faculty, new { @class = "form-input", maxlength = 80, required = "required" })
+            @Html.ValidationMessageFor(student => student.Faculty, "", new { @class = "field-validation" })
+        </div>
+
+        <div class="form-actions">
+            <a class="button button-secondary" href="/Student/Index">Cancel</a>
+            <button class="button button-primary" type="submit">Save student</button>
+        </div>
+    </form>
+</main>

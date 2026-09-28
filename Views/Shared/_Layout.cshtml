@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] | Global Science University</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/Home/Index" aria-label="Global Science University home">
+            <span class="brand-mark">G</span>
+            <span class="brand-name">Global Science <strong>University</strong></span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="/Home/Index">Overview</a>
+            <a href="/Student/Index">Students</a>
+        </nav>
+    </header>
+    @RenderBody()
+    <footer class="site-footer">
+        <span>Global Science University</span>
+        <span>Learn with purpose.</span>
+    </footer>
+</body>
+</html>
